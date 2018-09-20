@@ -1,0 +1,239 @@
+@prefix rr:      <http://www.w3.org/ns/r2rml#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<#TriplesMapC001>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_RESULTADO_URL AS C001_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_resultado_especifico'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Results> ;
+                rr:template "http://ies.linkeddata.ec/ucuenca/item/{C001_ID}"
+              ] .
+
+<#TriplesMapR004>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C005_ID, ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'resultado'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/ucuenca/syllabus/{C003_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#is_evaluation_of>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/evaluation/{C005_ID}"
+              ] .
+
+<#TriplesMapR008>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C005_ID, ID_EVALUACION_URL AS C002_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_situacion_evaluacion'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/ucuenca/item/{C002_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#has_item>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/evaluation/{C005_ID}"
+              ] .
+
+<#TriplesMapC005>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C005_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'evaluacion'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Evaluation_Mode> ;
+                rr:template "http://ies.linkeddata.ec/ucuenca/evaluation/{C005_ID}"
+              ] .
+
+<#TriplesMapA004>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT DATA AS A004_DATA, ID_EVALUACION_URL AS C007_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'evaluacion'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "A004_DATA" ;
+                          rr:language "es"
+                        ] ;
+                rr:predicate rdfs:Label
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/item/{C007_ID}"
+              ] .
+
+<#TriplesMapA001>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT DATA AS A001_DATA, ID_RESULTADO_URL AS C006_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'resultado'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "A001_DATA" ;
+                          rr:language "es"
+                        ] ;
+                rr:predicate <http://purl.org/vocab/aiiso/schema#name>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/item/{C006_ID}"
+              ] .
+
+<#TriplesMapR001>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID, ID_SILABO AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'resultado'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/ucuenca/result/{C004_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#has_result>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/syllabus/{C003_ID}"
+              ] .
+
+<#TriplesMapC004>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'resultado'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Results> ;
+                rr:template "http://ies.linkeddata.ec/ucuenca/result/{C004_ID}"
+              ] .
+
+<#TriplesMapR005>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_RESULTADO_URL AS C001_ID, ID_SILABO AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'resultado'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/ucuenca/result/{C004_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#is_item_of>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/item/{C001_ID}"
+              ] .
+
+<#TriplesMapA002>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT DATA AS A002_DATA, ID_RESULTADO_URL AS C006_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'resultado'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "A002_DATA" ;
+                          rr:language "es"
+                        ] ;
+                rr:predicate rdfs:Label
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/item/{C006_ID}"
+              ] .
+
+<#TriplesMapR002>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C004_ID, ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'resultado'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/ucuenca/syllabus/{C003_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#is_result_of>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/result/{C004_ID}"
+              ] .
+
+<#TriplesMapC007>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_EVALUACION_URL AS C007_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_situacion_evaluacion'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Evaluation_Mode> ;
+                rr:template "http://ies.linkeddata.ec/ucuenca/item/{C007_ID}"
+              ] .
+
+<#TriplesMapR006>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C004_ID, ID_RESULTADO_URL AS C001_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_resultado_especifico'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/ucuenca/item/{C001_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#has_item>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/result/{C004_ID}"
+              ] .
+
+<#TriplesMapC003>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'resultado'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://purl.org/vocab/aiiso/schema#KnowledgeGrouping> ;
+                rr:template "http://ies.linkeddata.ec/ucuenca/syllabus/{C003_ID}"
+              ] .
+
+<#TriplesMapA003>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT DATA AS A003_DATA, ID_EVALUACION_URL AS C007_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'evaluacion'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "A003_DATA" ;
+                          rr:language "es"
+                        ] ;
+                rr:predicate <http://purl.org/vocab/aiiso/schema#name>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/item/{C007_ID}"
+              ] .
+
+<#TriplesMapR003>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID, ID_SILABO AS C005_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'evaluacion'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/ucuenca/evaluation/{C005_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#has_evaluation>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/syllabus/{C003_ID}"
+              ] .
+
+<#TriplesMapC006>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_RESULTADO_URL AS C006_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_resultado_especifico'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Results> ;
+                rr:template "http://ies.linkeddata.ec/ucuenca/item/{C006_ID}"
+              ] .
+
+<#TriplesMapR007>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_EVALUACION_URL AS C002_ID, ID_SILABO AS C005_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'evaluacion'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/ucuenca/evaluation/{C005_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#is_item_of>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/ucuenca/item/{C002_ID}"
+              ] .
+
+<#TriplesMapC002>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_EVALUACION_URL AS C002_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_RESULTADOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_situacion_evaluacion'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Evaluation_Mode> ;
+                rr:template "http://ies.linkeddata.ec/ucuenca/item/{C002_ID}"
+              ] .
