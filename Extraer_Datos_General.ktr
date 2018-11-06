@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>etl0</name>
+    <name>Extraer_Datos_General</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -152,20 +152,17 @@
   </connection>
   <order>
   <hop> <from>Modified Java Script Value</from><to>REST Client 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>START_fuente_tabla_silabo_SGA</from><to>Select values</to><enabled>N</enabled> </hop>
   <hop> <from>reading Json</from><to>Select values 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Sort rows 4</to><enabled>N</enabled> </hop>
-  <hop> <from>Sort rows 4</from><to>Merge Join 5</to><enabled>N</enabled> </hop>
-  <hop> <from>Merge Join 5</from><to>Filter rows 2</to><enabled>N</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>Select values 2</to><enabled>N</enabled> </hop>
-  <hop> <from>Select values 2</from><to>Modified Java Script Value</to><enabled>N</enabled> </hop>
-  <hop> <from>Datos Ya Guardados</from><to>Merge Join 5</to><enabled>N</enabled> </hop>
-  <hop> <from>START_fuente_tabla_silabo_SGA</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values 3</from><to>Sort rows 2</to><enabled>Y</enabled> </hop>
   <hop> <from>REST Client 2 2</from><to>reading Json</to><enabled>Y</enabled> </hop>
   <hop> <from>REST Client 2</from><to>REST Client 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 2</from><to>If field value is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>If field value is null</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Datos Ya Guardados</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>START_fuente_tabla_silabo_SGA</from><to>Sort rows 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows 3</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>extrayendo solo silabos nuevos</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows 2</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>extrayendo solo silabos nuevos</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Datos Ya Guardados</name>
@@ -187,43 +184,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>468</xloc>
-      <yloc>10</yloc>
+      <xloc>166</xloc>
+      <yloc>21</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Filter rows 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to/>
-<send_false_to/>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>id_silabo_existente</leftvalue>
- <function>IS NULL</function>
- <rightvalue/>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>313</xloc>
-      <yloc>113</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge Join 5</name>
+    <name>Merge Join</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -234,8 +202,8 @@
            <schema_name/>
            </partitioning>
 <join_type>RIGHT OUTER</join_type>
-<step1>Datos Ya Guardados</step1>
-<step2>Sort rows 4</step2>
+<step1>Sort rows</step1>
+<step2>Sort rows 3</step2>
     <keys_1>
       <key>id_silabo_existente</key>
     </keys_1>
@@ -244,8 +212,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>313</xloc>
-      <yloc>10</yloc>
+      <xloc>584</xloc>
+      <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -265,7 +233,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var url_asignatura &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;cdsdesarrollo.ucuenca.edu.ec&#x3a;8441&#x2f;api&#x2f;servicioAsignatura&#x2f;buscarPorId&#x2f;&#x22; &#x2b; id_servicio_asignatura&#xa;var url_periodo_lectivo &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;silabos.ucuenca.edu.ec&#x2f;ms&#x2f;oferta-2&#x2f;api&#x2f;periodo&#x2f;buscarPorId&#x2f;&#x22; &#x2b; id_periodo_lectivo&#xa;var token &#x3d; &#x22;noToken&#x22;&#xa;</jsScript_script>
+        <jsScript_script>var url_asignatura &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;cdsdesarrollo.ucuenca.edu.ec&#x3a;8534&#x2f;api&#x2f;servicioAsignatura&#x2f;buscarPorId&#x2f;&#x22; &#x2b; id_servicio_asignatura&#xa;var url_periodo_lectivo &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;silabos.ucuenca.edu.ec&#x2f;ms&#x2f;oferta-2&#x2f;api&#x2f;periodo&#x2f;buscarPorId&#x2f;&#x22; &#x2b; id_periodo_lectivo&#xa;var token &#x3d; &#x22;noToken&#x22;&#xa;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>url_asignatura</name>
         <rename>url_asignatura</rename>
         <type>String</type>
@@ -286,8 +254,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>424</xloc>
-      <yloc>211</yloc>
+      <xloc>874</xloc>
+      <yloc>298</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -333,8 +301,55 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>614</xloc>
-      <yloc>212</yloc>
+      <xloc>682</xloc>
+      <yloc>298</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>REST Client 2 2</name>
+    <type>Rest</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <applicationType>TEXT XML</applicationType>
+    <method>GET</method>
+    <url/>
+    <urlInField>Y</urlInField>
+    <dynamicMethod>N</dynamicMethod>
+    <methodFieldName/>
+    <urlField>url_periodo_lectivo</urlField>
+    <bodyField/>
+    <httpLogin/>
+    <httpPassword>Encrypted </httpPassword>
+    <proxyHost/>
+    <proxyPort/>
+    <preemptive>N</preemptive>
+    <trustStoreFile/>
+    <trustStorePassword>Encrypted </trustStorePassword>
+    <headers>
+      <header>
+        <field>token</field>
+        <name>token</name>
+        </header>
+      </headers>
+    <parameters>
+      </parameters>
+    <result>
+      <name>resultPeriodo</name>
+      <code/>
+      <response_time/>
+      </result>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>490</xloc>
+      <yloc>298</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -359,104 +374,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>166</xloc>
-      <yloc>211</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>id_silabo</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>descripcion_silabo</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>fecha_actualizacion</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>fecha_creacion</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>id_periodo_lectivo</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>id_servicio_asignatura</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>objetivo_general_silabo</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>162</xloc>
-      <yloc>114</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>id_silabo</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>descripcion_silabo</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>fecha_actualizacion</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>fecha_creacion</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>id_periodo_lectivo</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>id_servicio_asignatura</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>objetivo_general_silabo</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>421</xloc>
-      <yloc>108</yloc>
+      <xloc>156</xloc>
+      <yloc>177</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -557,8 +476,42 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1092</xloc>
-      <yloc>211</yloc>
+      <xloc>188</xloc>
+      <yloc>396</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>id_silabo_existente</name>
+        <ascending>N</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>329</xloc>
+      <yloc>21</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -591,14 +544,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1091</xloc>
-      <yloc>294</yloc>
+      <xloc>411</xloc>
+      <yloc>396</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Sort rows 4</name>
+    <name>Sort rows 3</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -618,15 +571,15 @@
     <fields>
       <field>
         <name>id_silabo</name>
-        <ascending>Y</ascending>
+        <ascending>N</ascending>
         <case_sensitive>N</case_sensitive>
         <presorted>N</presorted>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>161</xloc>
-      <yloc>10</yloc>
+      <xloc>324</xloc>
+      <yloc>177</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -646,7 +599,7 @@
     <schema/>
     <table>silabo</table>
     <commit>20000</commit>
-    <truncate>Y</truncate>
+    <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
@@ -715,8 +668,37 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>687</xloc>
-      <yloc>296</yloc>
+      <xloc>612</xloc>
+      <yloc>396</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>extrayendo solo silabos nuevos</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to/>
+<send_false_to/>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>id_silabo_existente</leftvalue>
+ <function>IS NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>870</xloc>
+      <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -787,83 +769,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>915</xloc>
-      <yloc>211</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>REST Client 2 2</name>
-    <type>Rest</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <applicationType>TEXT XML</applicationType>
-    <method>GET</method>
-    <url/>
-    <urlInField>Y</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField>url_periodo_lectivo</urlField>
-    <bodyField/>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      <header>
-        <field>token</field>
-        <name>token</name>
-        </header>
-      </headers>
-    <parameters>
-      </parameters>
-    <result>
-      <name>resultPeriodo</name>
-      <code/>
-      <response_time/>
-      </result>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>767</xloc>
-      <yloc>211</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue> </replaceAllByValue>
-      <replaceAllMask/>
-      <selectFields>N</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>974</xloc>
-      <yloc>295</yloc>
+      <xloc>188</xloc>
+      <yloc>298</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -212,7 +212,55 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>583</xloc>
-      <yloc>271</yloc>
+      <yloc>270</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to/>
+<send_false_to/>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>id_silabo</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>id_resultado_especifico</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>id_situacion_evaluacion</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  </conditions>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>723</xloc>
+      <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -296,8 +344,8 @@
 <sqlStack>&#x5b;INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C001&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;Results&#x27;,&#x27;item&#x2f;&#x27;,&#x27;id_resultado_url&#x27;,&#x27;Field&#x27;,&#x27;id_resultado_especifico&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C002&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;Evaluation_Mode&#x27;,&#x27;item&#x2f;&#x27;,&#x27;id_evaluacion_url&#x27;,&#x27;Field&#x27;,&#x27;id_situacion_evaluacion&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C003&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;vocab&#x2f;aiiso&#x2f;schema&#x23;KnowledgeGrouping&#x27;,&#x27;syllabus&#x2f;&#x27;,&#x27;id_silabo&#x27;,&#x27;Field&#x27;,&#x27;resultado&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C004&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;Results&#x27;,&#x27;result&#x2f;&#x27;,&#x27;id_silabo&#x27;,&#x27;Field&#x27;,&#x27;resultado&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C005&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;Evaluation_Mode&#x27;,&#x27;evaluation&#x2f;&#x27;,&#x27;id_silabo&#x27;,&#x27;Field&#x27;,&#x27;evaluacion&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C006&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;Results&#x27;,&#x27;item&#x2f;&#x27;,&#x27;id_resultado_url&#x27;,&#x27;Field&#x27;,&#x27;id_resultado_especifico&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C007&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;Evaluation_Mode&#x27;,&#x27;item&#x2f;&#x27;,&#x27;id_evaluacion_url&#x27;,&#x27;Field&#x27;,&#x27;id_situacion_evaluacion&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO ANNOTATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;A001&#x27;,&#x27;C006&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;vocab&#x2f;aiiso&#x2f;schema&#x23;name&#x27;,&#x27;Data&#x27;,&#x27;Field&#x27;,&#x27;resultado&#x27;,&#x27;&#x27;,&#x27;es&#x27;&#x29;, INSERT INTO ANNOTATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;A002&#x27;,&#x27;C006&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;www.w3.org&#x2f;2000&#x2f;01&#x2f;rdf-schema&#x23;Label&#x27;,&#x27;Data&#x27;,&#x27;Field&#x27;,&#x27;resultado&#x27;,&#x27;&#x27;,&#x27;es&#x27;&#x29;, INSERT INTO ANNOTATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;A003&#x27;,&#x27;C007&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;vocab&#x2f;aiiso&#x2f;schema&#x23;name&#x27;,&#x27;Data&#x27;,&#x27;Field&#x27;,&#x27;evaluacion&#x27;,&#x27;&#x27;,&#x27;es&#x27;&#x29;, INSERT INTO ANNOTATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;A004&#x27;,&#x27;C007&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;www.w3.org&#x2f;2000&#x2f;01&#x2f;rdf-schema&#x23;Label&#x27;,&#x27;Data&#x27;,&#x27;Field&#x27;,&#x27;evaluacion&#x27;,&#x27;&#x27;,&#x27;es&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R001&#x27;,&#x27;C003&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;has_result&#x27;,&#x27;C004&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R002&#x27;,&#x27;C004&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;is_result_of&#x27;,&#x27;C003&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R003&#x27;,&#x27;C003&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;has_evaluation&#x27;,&#x27;C005&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R004&#x27;,&#x27;C005&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;is_evaluation_of&#x27;,&#x27;C003&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R005&#x27;,&#x27;C001&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;is_item_of&#x27;,&#x27;C004&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R006&#x27;,&#x27;C004&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;has_item&#x27;,&#x27;C001&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R007&#x27;,&#x27;C002&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;is_item_of&#x27;,&#x27;C005&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R008&#x27;,&#x27;C005&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;has_item&#x27;,&#x27;C002&#x27;&#x29;&#x5d;</sqlStack>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>282</xloc>
-      <yloc>271</yloc>
+      <xloc>281</xloc>
+      <yloc>270</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -636,54 +684,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>84</xloc>
       <yloc>83</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to/>
-<send_false_to/>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>id_silabo</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>id_resultado_especifico</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>id_situacion_evaluacion</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>723</xloc>
-      <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

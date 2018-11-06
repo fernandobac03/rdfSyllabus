@@ -5,7 +5,7 @@
 
 <#TriplesMapC001>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT ID_OBJETIVO_URL AS C001_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
+              [ rr:sqlQuery "SELECT ID_OBJETIVO_URL AS C001_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
               ] ;
       rr:subjectMap
               [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Objective> ;
@@ -14,7 +14,7 @@
 
 <#TriplesMapA002>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT DATA AS A002_DATA, ID_OBJETIVO_URL AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'objetivo'"
+              [ rr:sqlQuery "SELECT DATA AS A002_DATA, ID_OBJETIVO_URL AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'objetivo'"
               ] ;
       rr:predicateObjectMap
               [ rr:objectMap
@@ -29,7 +29,7 @@
 
 <#TriplesMapR004>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID, ID_OBJETIVO_URL AS C001_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
+              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID, ID_OBJETIVO_URL AS C001_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
               ] ;
       rr:predicateObjectMap
               [ rr:objectMap
@@ -43,7 +43,7 @@
 
 <#TriplesMapR002>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID, ID_SILABO AS C002_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
+              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID, ID_SILABO AS C002_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
               ] ;
       rr:predicateObjectMap
               [ rr:objectMap
@@ -57,7 +57,7 @@
 
 <#TriplesMapC003>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
+              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
               ] ;
       rr:subjectMap
               [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Objective> ;
@@ -66,7 +66,7 @@
 
 <#TriplesMapR003>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT ID_OBJETIVO_URL AS C001_ID, ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
+              [ rr:sqlQuery "SELECT ID_OBJETIVO_URL AS C001_ID, ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
               ] ;
       rr:predicateObjectMap
               [ rr:objectMap
@@ -80,7 +80,7 @@
 
 <#TriplesMapA001>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT DATA AS A001_DATA, ID_OBJETIVO_URL AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'objetivo'"
+              [ rr:sqlQuery "SELECT DATA AS A001_DATA, ID_OBJETIVO_URL AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'objetivo'"
               ] ;
       rr:predicateObjectMap
               [ rr:objectMap
@@ -95,7 +95,7 @@
 
 <#TriplesMapR001>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT ID_SILABO AS C002_ID, ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
+              [ rr:sqlQuery "SELECT ID_SILABO AS C002_ID, ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
               ] ;
       rr:predicateObjectMap
               [ rr:objectMap
@@ -109,7 +109,7 @@
 
 <#TriplesMapC004>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT ID_OBJETIVO_URL AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
+              [ rr:sqlQuery "SELECT ID_OBJETIVO_URL AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
               ] ;
       rr:subjectMap
               [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Objective> ;
@@ -118,7 +118,7 @@
 
 <#TriplesMapC002>
       rr:logicalTable
-              [ rr:sqlQuery "SELECT ID_SILABO AS C002_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
+              [ rr:sqlQuery "SELECT ID_SILABO AS C002_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_OBJETIVOS' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'id_objetivo_especifico'"
               ] ;
       rr:subjectMap
               [ rr:class <http://purl.org/vocab/aiiso/schema#KnowledgeGrouping> ;

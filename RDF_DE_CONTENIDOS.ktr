@@ -108,9 +108,10 @@
   <hop> <from>Sort rows 2 2</from><to>Creando_IDs</to><enabled>Y</enabled> </hop>
   <hop> <from>Creando_IDs</from><to>If field value is null</to><enabled>Y</enabled> </hop>
   <hop> <from>If field value is null</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>Row Normaliser 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Row Normaliser 2</from><to>Replace in string</to><enabled>Y</enabled> </hop>
   <hop> <from>Espera que termine los procesos previos</from><to>RDF_DE_CONTENIDOS_3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 2</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Row Normaliser 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Cargar ontologias</name>
@@ -128,8 +129,8 @@
     <stepname>Cargar ontologias</stepname>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>80</xloc>
-      <yloc>407</yloc>
+      <xloc>81</xloc>
+      <yloc>376</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -170,8 +171,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>475</xloc>
-      <yloc>79</yloc>
+      <xloc>477</xloc>
+      <yloc>17</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -192,8 +193,8 @@
 <stepName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>309</xloc>
-      <yloc>301</yloc>
+      <xloc>308</xloc>
+      <yloc>285</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -217,8 +218,37 @@
       </steps>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>642</xloc>
-      <yloc>407</yloc>
+      <xloc>643</xloc>
+      <yloc>376</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to/>
+<send_false_to/>
+    <compare>
+<condition>
+ <negated>Y</negated>
+ <leftvalue>capitulos</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text> </text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>894</xloc>
+      <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -245,8 +275,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>664</xloc>
-      <yloc>79</yloc>
+      <xloc>666</xloc>
+      <yloc>17</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -275,8 +305,8 @@
     <fileout>RDF_DE_CONTENIDOS_3.ttl</fileout>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>911</xloc>
-      <yloc>407</yloc>
+      <xloc>913</xloc>
+      <yloc>377</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -302,8 +332,8 @@
 <sqlStack>&#x5b;INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C001&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;spar&#x2f;doco&#x2f;Section&#x27;,&#x27;subchapter&#x2f;&#x27;,&#x27;id_subcapitulo_url&#x27;,&#x27;Field&#x27;,&#x27;id_subcapitulo&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C002&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;spar&#x2f;doco&#x2f;Chapter&#x27;,&#x27;chapter&#x2f;&#x27;,&#x27;id_capitulo_url&#x27;,&#x27;Field&#x27;,&#x27;id_capitulo&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C003&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;vocab&#x2f;aiiso&#x2f;schema&#x23;KnowledgeGrouping&#x27;,&#x27;syllabus&#x2f;&#x27;,&#x27;id_silabo&#x27;,&#x27;Field&#x27;,&#x27;id_capitulo&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C004&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;Academic_Content&#x27;,&#x27;content&#x2f;&#x27;,&#x27;id_silabo&#x27;,&#x27;Field&#x27;,&#x27;id_capitulo&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C005&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;spar&#x2f;doco&#x2f;Section&#x27;,&#x27;subchapter&#x2f;&#x27;,&#x27;id_subcapitulo_url&#x27;,&#x27;Field&#x27;,&#x27;id_subcapitulo&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C006&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;spar&#x2f;doco&#x2f;Chapter&#x27;,&#x27;chapter&#x2f;&#x27;,&#x27;id_capitulo_url&#x27;,&#x27;Field&#x27;,&#x27;id_capitulo&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO CLASSMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;C007&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;spar&#x2f;doco&#x2f;Chapter&#x27;,&#x27;chapter&#x2f;&#x27;,&#x27;id_capitulo_url&#x27;,&#x27;Field&#x27;,&#x27;id_subcapitulo&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;&#x29;, INSERT INTO ANNOTATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;A001&#x27;,&#x27;C005&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;vocab&#x2f;aiiso&#x2f;schema&#x23;name&#x27;,&#x27;Data&#x27;,&#x27;Field&#x27;,&#x27;subcapitulos&#x27;,&#x27;&#x27;,&#x27;es&#x27;&#x29;, INSERT INTO ANNOTATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;A002&#x27;,&#x27;C006&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;purl.org&#x2f;vocab&#x2f;aiiso&#x2f;schema&#x23;name&#x27;,&#x27;Data&#x27;,&#x27;Field&#x27;,&#x27;capitulos&#x27;,&#x27;&#x27;,&#x27;es&#x27;&#x29;, INSERT INTO ANNOTATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;A003&#x27;,&#x27;C005&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;www.w3.org&#x2f;2000&#x2f;01&#x2f;rdf-schema&#x23;Label&#x27;,&#x27;Data&#x27;,&#x27;Field&#x27;,&#x27;subcapitulos&#x27;,&#x27;&#x27;,&#x27;es&#x27;&#x29;, INSERT INTO ANNOTATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;A004&#x27;,&#x27;C006&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;www.w3.org&#x2f;2000&#x2f;01&#x2f;rdf-schema&#x23;Label&#x27;,&#x27;Data&#x27;,&#x27;Field&#x27;,&#x27;capitulos&#x27;,&#x27;&#x27;,&#x27;es&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R001&#x27;,&#x27;C003&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;has_academic_content&#x27;,&#x27;C004&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R002&#x27;,&#x27;C004&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;has_chapter&#x27;,&#x27;C002&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R003&#x27;,&#x27;C002&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;has_subchapter&#x27;,&#x27;C001&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R004&#x27;,&#x27;C001&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;is_subchapter_of&#x27;,&#x27;C007&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R005&#x27;,&#x27;C002&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;is_chapter_of&#x27;,&#x27;C004&#x27;&#x29;, INSERT INTO RELATIONMAPPING VALUES&#x28;&#x7b;0&#x7d;,&#x7b;1&#x7d;,&#x27;R006&#x27;,&#x27;C004&#x27;,&#x27;syllabus_ontology_ec.owl&#x27;,&#x27;http&#x3a;&#x2f;&#x2f;ies.linkeddata.ec&#x2f;syllabusOntology&#x2f;vocabulary&#x23;is_academic_content_of&#x27;,&#x27;C003&#x27;&#x29;&#x5d;</sqlStack>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>308</xloc>
-      <yloc>407</yloc>
+      <xloc>309</xloc>
+      <yloc>376</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -356,8 +386,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>669</xloc>
-      <yloc>196</yloc>
+      <xloc>670</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -391,8 +421,8 @@
         <norm>Data</norm>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>894</xloc>
-      <yloc>196</yloc>
+      <xloc>893</xloc>
+      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -486,8 +516,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>306</xloc>
-      <yloc>196</yloc>
+      <xloc>307</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -626,8 +656,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>894</xloc>
-      <yloc>81</yloc>
+      <xloc>892</xloc>
+      <yloc>17</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -660,8 +690,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>306</xloc>
-      <yloc>79</yloc>
+      <xloc>308</xloc>
+      <yloc>17</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -678,7 +708,7 @@
            <schema_name/>
            </partitioning>
     <connection>localSource</connection>
-    <sql>SELECT&#xa;  id_capitulo&#xa;, capitulos&#xa;, subcapitulos&#xa;, id_silabo&#xa;, id_subcapitulo&#xa;FROM contenido&#xa;offset 200001</sql>
+    <sql>SELECT&#xa;  id_capitulo&#xa;, capitulos&#xa;, subcapitulos&#xa;, id_silabo&#xa;, id_subcapitulo&#xa;FROM contenido&#xa;offset 200001&#xa;limit 100000</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -686,8 +716,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>100</xloc>
-      <yloc>79</yloc>
+      <xloc>102</xloc>
+      <yloc>17</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -711,8 +741,8 @@
         </field>      <field>        <name>Data</name>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>479</xloc>
-      <yloc>196</yloc>
+      <xloc>480</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
