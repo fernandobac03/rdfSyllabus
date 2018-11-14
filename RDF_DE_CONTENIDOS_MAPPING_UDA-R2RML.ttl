@@ -1,0 +1,211 @@
+@prefix rr:      <http://www.w3.org/ns/r2rml#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<#TriplesMapC001>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SUBCAPITULO_URL AS C001_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'subcapitulos'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://purl.org/spar/doco/Section> ;
+                rr:template "http://ies.linkeddata.ec/uda/subchapter/{C001_ID}"
+              ] .
+
+<#TriplesMapR004>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SUBCAPITULO_URL AS C001_ID, ID_CAPITULO_URL AS C007_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'subcapitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/uda/chapter/{C007_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#is_subchapter_of>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/subchapter/{C001_ID}"
+              ] .
+
+<#TriplesMapC005>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SUBCAPITULO_URL AS C005_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'subcapitulos'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://purl.org/spar/doco/Section> ;
+                rr:template "http://ies.linkeddata.ec/uda/subchapter/{C005_ID}"
+              ] .
+
+<#TriplesMapA004>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT DATA AS A004_DATA, ID_CAPITULO_URL AS C006_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "A004_DATA" ;
+                          rr:language "es"
+                        ] ;
+                rr:predicate rdfs:Label
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/chapter/{C006_ID}"
+              ] .
+
+<#TriplesMapA001>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT DATA AS A001_DATA, ID_SUBCAPITULO_URL AS C005_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'subcapitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "A001_DATA" ;
+                          rr:language "es"
+                        ] ;
+                rr:predicate <http://purl.org/vocab/aiiso/schema#name>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/subchapter/{C005_ID}"
+              ] .
+
+<#TriplesMapR001>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID, ID_SILABO AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/uda/content/{C004_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#has_academic_content>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/syllabus/{C003_ID}"
+              ] .
+
+<#TriplesMapC004>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://ies.linkeddata.ec/syllabusOntology/vocabulary#Academic_Content> ;
+                rr:template "http://ies.linkeddata.ec/uda/content/{C004_ID}"
+              ] .
+
+<#TriplesMapR005>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_CAPITULO_URL AS C002_ID, ID_SILABO AS C004_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/uda/content/{C004_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#is_chapter_of>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/chapter/{C002_ID}"
+              ] .
+
+<#TriplesMapA002>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT DATA AS A002_DATA, ID_CAPITULO_URL AS C006_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "A002_DATA" ;
+                          rr:language "es"
+                        ] ;
+                rr:predicate <http://purl.org/vocab/aiiso/schema#name>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/chapter/{C006_ID}"
+              ] .
+
+<#TriplesMapR002>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C004_ID, ID_CAPITULO_URL AS C002_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/uda/chapter/{C002_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#has_chapter>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/content/{C004_ID}"
+              ] .
+
+<#TriplesMapC007>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_CAPITULO_URL AS C007_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'subcapitulos'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://purl.org/spar/doco/Chapter> ;
+                rr:template "http://ies.linkeddata.ec/uda/chapter/{C007_ID}"
+              ] .
+
+<#TriplesMapR006>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C004_ID, ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/uda/syllabus/{C003_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#is_academic_content_of>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/content/{C004_ID}"
+              ] .
+
+<#TriplesMapC003>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_SILABO AS C003_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://purl.org/vocab/aiiso/schema#KnowledgeGrouping> ;
+                rr:template "http://ies.linkeddata.ec/uda/syllabus/{C003_ID}"
+              ] .
+
+<#TriplesMapA003>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT DATA AS A003_DATA, ID_SUBCAPITULO_URL AS C005_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'subcapitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:column "A003_DATA" ;
+                          rr:language "es"
+                        ] ;
+                rr:predicate rdfs:Label
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/subchapter/{C005_ID}"
+              ] .
+
+<#TriplesMapR003>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_CAPITULO_URL AS C002_ID, ID_SUBCAPITULO_URL AS C001_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'subcapitulos'"
+              ] ;
+      rr:predicateObjectMap
+              [ rr:objectMap
+                        [ rr:template "http://ies.linkeddata.ec/uda/subchapter/{C001_ID}"
+                        ] ;
+                rr:predicate <http://ies.linkeddata.ec/syllabusOntology/vocabulary#has_subchapter>
+              ] ;
+      rr:subjectMap
+              [ rr:template "http://ies.linkeddata.ec/uda/chapter/{C002_ID}"
+              ] .
+
+<#TriplesMapC006>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_CAPITULO_URL AS C006_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://purl.org/spar/doco/Chapter> ;
+                rr:template "http://ies.linkeddata.ec/uda/chapter/{C006_ID}"
+              ] .
+
+<#TriplesMapC002>
+      rr:logicalTable
+              [ rr:sqlQuery "SELECT ID_CAPITULO_URL AS C002_ID FROM DEFAULTDATA WHERE TRANSID = 'RDF_DE_CONTENIDOS_UDA' AND STEPID = 'DATA PRECATCHING' AND FIELD LIKE 'capitulos'"
+              ] ;
+      rr:subjectMap
+              [ rr:class <http://purl.org/spar/doco/Chapter> ;
+                rr:template "http://ies.linkeddata.ec/uda/chapter/{C002_ID}"
+              ] .
